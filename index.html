@@ -104,11 +104,29 @@
         <link rel="stylesheet" href="./assets/css/grid.css" />
         <!-- styles css -->
         <link rel="stylesheet" href="./assets/css/styles.css" />
+
+        <!-- reponsive -->
+        <link rel="stylesheet" href="./assets/css/reponsive.css" />
+        <!-- animation -->
+        <link
+            href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+            rel="stylesheet"
+        />
     </head>
     <body>
+        <!--pc header -->
         <header class="header">
             <div class="header__inner">
-                <div class="header__letter">
+                <!-- tablet/mobile menu -->
+                <label for="menu-checkbox" class="toggle-menu">
+                    <img
+                        class="toggle-menu__img"
+                        src="./assets/icon/mobile-icon-nav.png"
+                        alt=""
+                    />
+                </label>
+                <!-- mail -->
+                <a href="mailto:hi@arif.interactive" class="header__letter">
                     <div class="header__letter-wrap">
                         <img
                             src="./assets/icon/letter.svg"
@@ -117,14 +135,18 @@
                         />
                     </div>
                     <p class="header__letter-title">hi@arif.interactive</p>
-                </div>
-                <img
-                    src="./assets/icon/header-avt.svg"
-                    alt=""
-                    class="header__logo"
-                />
+                </a>
+                <!-- logo -->
+                <a href="#">
+                    <img
+                        src="./assets/icon/header-avt.svg"
+                        alt=""
+                        class="header__logo"
+                    />
+                </a>
+                <!-- navication -->
                 <nav class="navbar">
-                    <ul class="navbar__list">
+                    <ul id="pc-nav" class="navbar__list">
                         <li>
                             <a href="#!" class="navbar__item">Projects</a>
                         </li>
@@ -142,14 +164,37 @@
             </div>
         </header>
 
+        <!-- header-mobile -->
+        <header class="header-mobile">
+            <input
+                type="checkbox"
+                name=""
+                id="menu-checkbox"
+                class="menu-checkbox"
+                hidden
+            />
+            <!-- overlay -->
+            <label for="menu-checkbox" class="menu-overlay"></label>
+            <!-- navication -->
+            <div class="menu-drawer">
+                <ul id="mobile-nav"></ul>
+                <script>
+                    const pcNav = document.querySelector("#pc-nav");
+                    const mobileNav = document.querySelector("#mobile-nav");
+
+                    mobileNav.innerHTML = pcNav.innerHTML;
+                </script>
+            </div>
+        </header>
+        <!-- hero -->
         <section class="hero">
             <div class="container">
                 <!-- hero -->
                 <div
                     class="row row-cols-1 row-cols-md-2 row-cols-lg-2 hero__inner"
                 >
-                    <div class="col col-lg-5 g-0">
-                        <div class="hero__media">
+                    <div class="col col-lg-5 g-0 hero__media">
+                        <div class="hero__media-wrap" data-aos="fade-right">
                             <img
                                 src="./assets/img/reho-img.png"
                                 alt=""
@@ -163,7 +208,7 @@
                         </div>
                     </div>
                     <div class="col col-lg-5 offset-lg-2 g-0">
-                        <section class="hero__content">
+                        <section class="hero__content" data-aos="fade-left">
                             <h1 class="hero__heading">
                                 An Interactive Designer
                             </h1>
@@ -219,6 +264,7 @@
         </section>
 
         <div class="container">
+            <!-- tools -->
             <section class="tools">
                 <div class="tool__inner">
                     <h2 class="tool__heading">Meet my recent clients</h2>
@@ -290,7 +336,7 @@
                     </div>
                 </div>
             </section>
-
+            <!-- design -->
             <section class="design">
                 <div class="design__content">
                     <h2 class="section__heading design__heading">
@@ -302,56 +348,78 @@
                     </p>
                 </div>
                 <div class="design__list">
-                    <div class="row row-cols-1 row-cols-lg-3">
-                        <article class="design-item">
-                            <figure class="design-item__img">
-                                <img
-                                    src="./assets/img/design-img-01.png"
-                                    alt=""
-                                    class="design-item__icon"
-                                />
-                            </figure>
-                            <h3 class="design-item__heading">Product design</h3>
-                            <p class="section__desc design-item__desc">
-                                Lorem ipsum dolor sit amet, solor adipiscing
-                                elit. Non nisl solor ut elementum turpis.
-                            </p>
-                        </article>
-                        <article class="design-item">
-                            <figure class="design-item__img">
-                                <img
-                                    src="./assets/img/design-img-02.png"
-                                    alt=""
-                                    class="design-item__icon"
-                                />
-                            </figure>
-                            <h3 class="design-item__heading">UI/UX Design</h3>
-                            <p class="section__desc design-item__desc">
-                                Lorem ipsum dolor sit amet, solor adipiscing
-                                elit. Non nisl solor ut elementum turpis.
-                            </p>
-                        </article>
-                        <article class="design-item">
-                            <figure class="design-item__img">
-                                <img
-                                    src="./assets/img/design-img-03.png"
-                                    alt=""
-                                    class="design-item__icon"
-                                />
-                            </figure>
-                            <h3 class="design-item__heading">
-                                Interactive design
-                            </h3>
-                            <p class="section__desc design-item__desc">
-                                Lorem ipsum dolor sit amet, solor adipiscing
-                                elit. Non nisl solor ut elementum turpis.
-                            </p>
-                        </article>
+                    <div class="row row-cols-lg-3 design__list-wrap">
+                        <div class="col col-12 col-lg-4">
+                            <article class="design-item">
+                                <figure class="design-item__img">
+                                    <img
+                                        src="./assets/img/design-img-01.png"
+                                        alt=""
+                                        class="design-item__icon"
+                                    />
+                                </figure>
+                                <h3>
+                                    <a href="#!" class="design-item__heading"
+                                        >Product design</a
+                                    >
+                                </h3>
+                                <p class="section__desc design-item__desc">
+                                    Lorem ipsum dolor sit amet, solor adipiscing
+                                    elit. Non nisl solor ut elementum turpis.
+                                </p>
+                            </article>
+                        </div>
+                        <div class="col">
+                            <article class="design-item">
+                                <figure class="design-item__img">
+                                    <img
+                                        src="./assets/img/design-img-02.png"
+                                        alt=""
+                                        class="design-item__icon"
+                                    />
+                                </figure>
+                                <h3>
+                                    <a href="#!" class="design-item__heading"
+                                        >UI/UX Design</a
+                                    >
+                                </h3>
+                                <p class="section__desc design-item__desc">
+                                    Lorem ipsum dolor sit amet, solor adipiscing
+                                    elit. Non nisl solor ut elementum turpis.
+                                </p>
+                            </article>
+                        </div>
+                        <div class="col">
+                            <article class="design-item">
+                                <figure class="design-item__img">
+                                    <img
+                                        src="./assets/img/design-img-03.png"
+                                        alt=""
+                                        class="design-item__icon"
+                                    />
+                                </figure>
+                                <h3>
+                                    <a href="#!" class="design-item__heading"
+                                        >Interactive design</a
+                                    >
+                                </h3>
+                                <p class="section__desc design-item__desc">
+                                    Lorem ipsum dolor sit amet, solor adipiscing
+                                    elit. Non nisl solor ut elementum turpis.
+                                </p>
+                            </article>
+                        </div>
+                    </div>
+                    <!-- dots-mobie -->
+                    <div class="mobile-dots">
+                        <div class="mobile__dot"></div>
+                        <div class="mobile__dot mobile__dot--active"></div>
+                        <div class="mobile__dot"></div>
                     </div>
                 </div>
             </section>
         </div>
-
+        <!-- project -->
         <div class="project">
             <div class="container">
                 <div class="project__top">
@@ -364,9 +432,10 @@
                     </p>
                 </div>
                 <div class="project__list">
-                    <div class="row row-cols-lg-2 row-cols-md-2 row-cols-1">
+                    <div class="row row-cols-lg-2 row-cols-1">
                         <div class="col">
-                            <article class="project-item">
+                            <!-- item 1 -->
+                            <article class="project-item" data-aos="flip-left">
                                 <div class="project-item__info">
                                     <h3>
                                         <a
@@ -384,16 +453,24 @@
                                     >
                                 </div>
                                 <figure class="project-item__media">
-                                    <img
-                                        src="./assets/img/project-img-01.png"
-                                        alt=""
-                                        class="project-item__img"
-                                    />
+                                    <a href="#!">
+                                        <img
+                                            src="./assets/img/project-img-01.png"
+                                            alt=""
+                                            class="project-item__img"
+                                        />
+                                    </a>
                                 </figure>
+                                <img
+                                    src="./assets/icon/project__decor.svg"
+                                    alt=""
+                                    class="project__decor"
+                                />
                             </article>
                         </div>
                         <div class="col">
-                            <article class="project-item">
+                            <!-- item 2 -->
+                            <article class="project-item" data-aos="flip-right">
                                 <div class="project-item__info">
                                     <h3>
                                         <a
@@ -411,16 +488,24 @@
                                     >
                                 </div>
                                 <figure class="project-item__media">
-                                    <img
-                                        src="./assets/img/project-img-02.png"
-                                        alt=""
-                                        class="project-item__img"
-                                    />
+                                    <a href="#!">
+                                        <img
+                                            src="./assets/img/project-img-02.png"
+                                            alt=""
+                                            class="project-item__img"
+                                        />
+                                    </a>
                                 </figure>
+                                <img
+                                    src="./assets/icon/project__decor.svg"
+                                    alt=""
+                                    class="project__decor"
+                                />
                             </article>
                         </div>
                         <div class="col">
-                            <article class="project-item">
+                            <!-- item 3 -->
+                            <article class="project-item" data-aos="flip-left">
                                 <div class="project-item__info">
                                     <h3>
                                         <a
@@ -438,16 +523,25 @@
                                     >
                                 </div>
                                 <figure class="project-item__media">
-                                    <img
-                                        src="./assets/img/project-img-03.png"
-                                        alt=""
-                                        class="project-item__img"
-                                    />
+                                    <a href="#!">
+                                        <img
+                                            src="./assets/img/project-img-03.png"
+                                            alt=""
+                                            class="project-item__img"
+                                        />
+                                    </a>
                                 </figure>
+
+                                <img
+                                    src="./assets/icon/project__decor.svg"
+                                    alt=""
+                                    class="project__decor"
+                                />
                             </article>
                         </div>
                         <div class="col">
-                            <article class="project-item">
+                            <!-- item 4 -->
+                            <article class="project-item" data-aos="flip-right">
                                 <div class="project-item__info">
                                     <h3>
                                         <a
@@ -465,25 +559,33 @@
                                     >
                                 </div>
                                 <figure class="project-item__media">
-                                    <img
-                                        src="./assets/img/project-img-04.png"
-                                        alt=""
-                                        class="project-item__img"
-                                    />
+                                    <a href="#!">
+                                        <img
+                                            src="./assets/img/project-img-04.png"
+                                            alt=""
+                                            class="project-item__img"
+                                        />
+                                    </a>
                                 </figure>
+
+                                <img
+                                    src="./assets/icon/project__decor.svg"
+                                    alt=""
+                                    class="project__decor"
+                                />
                             </article>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-lg-2 offset-lg-5">
-                        <a href="#!" class="btn project__btn">All Projects</a>
-                    </div>
+
+                <div class="project__btn-wrap">
+                    <a href="#!" class="btn project__btn">All Projects</a>
                 </div>
             </div>
         </div>
 
         <div class="container">
+            <!-- stats -->
             <section class="stats">
                 <div class="stats__header">
                     <p class="stats__title">Hey,,,,It’s Arif</p>
@@ -497,20 +599,20 @@
                 </div>
 
                 <div class="stats__qty">
-                    <div class="row">
-                        <div class="col col-2 offset-2">
+                    <div class="row qty__list">
+                        <div class="col col-lg-2 offset-lg-2">
                             <div class="qty__column">
                                 <p class="qty__number">08+</p>
                                 <p class="qty__desc">Years Experience</p>
                             </div>
                         </div>
-                        <div class="col col-2 offset-1">
+                        <div class="col col-lg-2 offset-lg-1">
                             <div class="qty__column">
                                 <p class="qty__number">21+</p>
                                 <p class="qty__desc">Features & Awards</p>
                             </div>
                         </div>
-                        <div class="col col-2 offset-1">
+                        <div class="col col-lg-2 offset-lg-1">
                             <div class="qty__column">
                                 <p class="qty__number">97%</p>
                                 <p class="qty__desc">Clients Rating</p>
@@ -526,49 +628,62 @@
                     class="stats__video"
                 ></video>
             </section>
-
-            <section class="feedback">
-                <div class="feedback__header">
-                    <h2 class="feedback__heading section__heading">
-                        What people says
-                    </h2>
-                    <p class="section__desc feedback__desc">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        In urna, non nisl tincidunt ut elementum turpis.
+            <!-- feedback -->
+        </div>
+        <section class="feedback">
+            <div class="feedback__header">
+                <h2 class="feedback__heading section__heading">
+                    What people says
+                </h2>
+                <p class="section__desc feedback__desc">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
+                    urna, non nisl tincidunt ut elementum turpis.
+                </p>
+            </div>
+            <div class="feedback__list">
+                <article class="feedback-item">
+                    <p class="feedback-item__desc">
+                        “Duis aute irure dolor in reprehenderit in voluptate
+                        velit esse cillum dolore eu fugiat nulla pariatur.
+                        Excepteur sint occaecat cupidatat non proident, sunt in
+                        culpa.”
                     </p>
-                </div>
-                <div class="feedback__list">
-                    <article class="feedback-item">
-                        <p class="feedback-item__desc">
-                            “Duis aute irure dolor in reprehenderit in voluptate
-                            velit esse cillum dolore eu fugiat nulla pariatur.
-                            Excepteur sint occaecat cupidatat non proident, sunt
-                            in culpa.”
-                        </p>
-                        <div class="feedback-item__name-wrap">
-                            <img
-                                src="./assets/img/feedback-avatar.png"
-                                alt=""
-                                class="feedback__avatar"
-                            />
-                            <p class="feedback-item__name">Joe Elia</p>
-                        </div>
-                        <div class="feedback-item__title">
-                            User Interface Design at PCL Lab
-                        </div>
-                    </article>
-                    <div class="feedback-dots">
-                        <div class="dot"></div>
-                        <div class="dot"></div>
-                        <div class="dot"></div>
-                        <div class="dot"></div>
-                        <div class="dot"></div>
+                    <div class="feedback-item__name-wrap">
+                        <img
+                            src="./assets/img/feedback-avatar.png"
+                            alt=""
+                            class="feedback__avatar"
+                        />
+                        <p class="feedback-item__name">Joe Elia</p>
                     </div>
+                    <div class="feedback-item__title">
+                        User Interface Design at PCL Lab
+                    </div>
+                </article>
+                <div class="feedback-dots">
+                    <div class="feedback__dot"></div>
+                    <div class="feedback__dot"></div>
+                    <div class="feedback__dot feedback__dot--active"></div>
+                    <div class="feedback__dot"></div>
+                    <div class="feedback__dot"></div>
                 </div>
-            </section>
+            </div>
+            <img
+                src="./assets/img/feedback__decor.svg"
+                alt=""
+                class="feedback__decor"
+            />
+            <img
+                src="./assets/img/feedback__decor-1.svg"
+                alt=""
+                class="feedback__decor"
+            />
+        </section>
 
+        <div class="container">
+            <!-- question -->
             <section class="question">
-                <h2 class="section__heading">
+                <h2 class="section__heading question__heading">
                     A few questions clients normally ask me
                 </h2>
                 <ul class="question__list">
@@ -694,6 +809,148 @@
                     </li>
                 </ul>
             </section>
+            <!-- media -->
+            <section class="media">
+                <h2 class="section__heading media__heading">My atmosphere</h2>
+                <p class="section__desc media__desc">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
+                    urna, non nisl tincidunt ut elementum turpis.
+                </p>
+                <p class="media__title">@interaction_arif</p>
+
+                <div class="media__list-image">
+                    <div
+                        class="row row-cols-1 row-cols-md-2 row-cols-lg-3 media__list"
+                    >
+                        <div class="col">
+                            <figure class="media__img-wrap">
+                                <img
+                                    src="./assets/img/media-img-01.png"
+                                    alt=""
+                                    class="media__img"
+                                />
+                            </figure>
+                        </div>
+                        <div class="col">
+                            <figure class="media__img-wrap">
+                                <img
+                                    src="./assets/img/media-img-02.png"
+                                    alt=""
+                                    class="media__img"
+                                />
+                            </figure>
+                        </div>
+                        <div class="col">
+                            <figure class="media__img-wrap">
+                                <img
+                                    src="./assets/img/media-img-03.png"
+                                    alt=""
+                                    class="media__img"
+                                />
+                            </figure>
+                        </div>
+                    </div>
+                    <!-- dots-mobie -->
+                    <div class="mobile-dots media-dots">
+                        <div class="mobile__dot"></div>
+                        <div class="mobile__dot"></div>
+                        <div class="mobile__dot mobile__dot--active"></div>
+                        <div class="mobile__dot"></div>
+                        <div class="mobile__dot"></div>
+                    </div>
+                </div>
+            </section>
         </div>
+        <!-- booking -->
+        <section class="booking">
+            <div class="booking__content">
+                <img
+                    src="./assets/icon/booking-icon.svg"
+                    alt=""
+                    class="booking__icon"
+                />
+                <h2 class="section__heading">Got a project? Let’s talk</h2>
+                <p class="section__desc booking__desc">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
+                    urna, non nisl tincidunt ut elementum turpis.
+                </p>
+                <a href="#!" class="btn booking__btn">Book a Call</a>
+            </div>
+            <img
+                src="./assets/icon/booking-decor-01.svg"
+                alt=""
+                class="booking__decor"
+            />
+            <img
+                src="./assets/icon/booking-decor-02.svg"
+                alt=""
+                class="booking__decor"
+            />
+            <img
+                src="./assets/icon/booking-decor-03.svg"
+                alt=""
+                class="booking__decor"
+            />
+        </section>
+
+        <!-- footer -->
+        <footer class="footer">
+            <div class="footer__inner">
+                <a href="mailto:hi@arif.interactive" class="footer__letter">
+                    <div class="footer__letter-wrap">
+                        <img
+                            src="./assets/icon/letter.svg"
+                            alt=""
+                            class="footer__letter-img"
+                        />
+                    </div>
+                    <p class="footer__letter-title">hi@arif.interactive</p>
+                </a>
+                <a href="#">
+                    <img
+                        src="./assets/icon/header-avt.svg"
+                        alt=""
+                        class="footer__logo"
+                    />
+                </a>
+                <nav class="footer-navbar">
+                    <ul class="navbar__list footer__list">
+                        <li>
+                            <a href="#!" class="navbar__item footer__item"
+                                >Projects</a
+                            >
+                        </li>
+                        <li>
+                            <a href="#!" class="navbar__item footer__item"
+                                >Journey</a
+                            >
+                        </li>
+                        <li>
+                            <a href="#!" class="navbar__item footer__item"
+                                >Service</a
+                            >
+                        </li>
+                        <li>
+                            <a href="#!" class="navbar__item footer__item"
+                                >Contact</a
+                            >
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="footer__bottom">
+                <p class="footer__copyright">
+                    ©interactiveArif 2021. All rights reserved.
+                </p>
+                <div class="footer__see-more">
+                    <p class="footer__policy">Privacy Policy</p>
+                    <p class="footer__terms">Terms of Conditions</p>
+                </div>
+            </div>
+        </footer>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>
+            AOS.init();
+        </script>
     </body>
 </html>
