@@ -262,7 +262,7 @@ a {
 }
 .design-item {
     background: #fbfaff;
-    padding: 32px 0;
+    padding: 32px 42px;
     --spacer: 72px;
 }
 
@@ -570,6 +570,7 @@ a {
 }
 .ques-item__label-btn {
     position: relative;
+    cursor: pointer;
     height: 50px;
     width: 50px;
     border-radius: 50%;
